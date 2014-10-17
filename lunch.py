@@ -1,11 +1,20 @@
 import datetime
+import glob
+import os
 
+
+#################################################
 #Change this for number of minutes between groups
+#################################################
 minutesBetweenGroups = 8
 #################################################
-f = open('lunch.csv', 'r')
+newest = max(glob.iglob('CSVResponses/*.csv'), key=os.path.getctime)
+print newest
+f = open(newest,'r')
+
 listOfFirstNames = []
 listOfLastNames = []
+
 for line in f:
 	name = line.split(',')[1]
 	try:
