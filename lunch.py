@@ -13,6 +13,7 @@ import datetime
 import glob
 import os
 import random
+import Tkinter
 
 ####################################################
 # Change this for number of minutes between groups #
@@ -100,9 +101,9 @@ def pickNameRange():
         
         dictPR = loadPreviousResults()
         firstorlast = 2
-        if( dictPR['first']-dictPR['last'] >= 2 ):
+        if( dictPR['first']-dictPR['last'] >= 3 ):
                 firstorlast = 1
-        if( dictPR['last']-dictPR['first'] >= 2 ):
+        if( dictPR['last']-dictPR['first'] >= 3 ):
                 firstorlast = 0
         if( firstorlast == 2 ):
                 firstorlast = random.choice([0,1])
@@ -178,25 +179,52 @@ def sortNRListByIList( taggedDict, indexList ):
         for index in indexList:
                 finalSortedList.append(taggedDict[index])
         return finalSortedList
-                
-def formatNameRanges( listNameRanges, FoL ):
-        longestFirstName = 0
-        longestFirstName2 = 0
-        for pair in listNameRanges:
-                if len(pair[0]) > longestFirstName:
-                        longestFirstName = len(pair[0])
-                if len(pair[1]) > longestFirstName2:
-                        longestFirstName2 = len(pair[1])
 
-        t = datetime.datetime.now()
+def quit(root):
+    root.destroy()
+    
+def formatNameRanges( listNameRanges, FoL ):
+        longestNameStart = 0
+        longestNameEnd = 0
+        for pair in listNameRanges:
+                if len(pair[0]) > longestNameStart:
+                        longestNameStart = len(pair[0])
+                if len(pair[1]) > longestNameEnd:
+                        longestNameEnd = len(pair[1])
+
+        widestTableLength = (longestNameStart + 3 + longestNameEnd)
+        headerSpacing = (widestTableLength/2)-4
+        
         if FoL == 0:
-                print "First Names:"
+                headerString = "First Names:"
         elif FoL == 1:
-                print "Last Names:"
+                headerString = "Last Names:"
+                headerSpacing -= 1
+                
+
+        
+        t = datetime.datetime.now()
+        finalString = ""
+        for i in range(headerSpacing):
+                finalString += " "
+        finalString += "%s\n" % (headerString)
+        for i in range(widestTableLength+1):
+                finalString += "-"
+        finalString += "\n"
         for pair in listNameRanges:
                 time = t.strftime("%H:%M")
-                print "%*s - %-*s -> %s" % (longestFirstName, pair[0], longestFirstName2, pair[1],time)
+                finalString += "%*s - %-*s -> %s\n" % (longestNameStart, pair[0], longestNameEnd, pair[1],time)
                 t = t + datetime.timedelta(0,(60*minutesBetweenGroups))
+
+        print finalString
+        print "Script Finished, First paste into an E-mail;"
+        print "Then Press Ctrl+C to close script"
+        r = Tkinter.Tk()
+        r.withdraw()
+        r.clipboard_clear()
+        r.clipboard_append(finalString)
+        r.mainloop()
+        r.quit()
 
 
 def main():
@@ -214,7 +242,6 @@ def main():
         listIndexes = firstOrLastAndListIndexes[1]
         finalList = sortNRListByIList(taggedNameRanges, listIndexes)
         formatNameRanges(finalList, firstOrLast)
-        raw_input("Press Enter to Close")
 
 if __name__ == "__main__":
     main()
