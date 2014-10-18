@@ -114,20 +114,7 @@ def pickNameRange():
                 dictPR[nameRange]+=pointsToAdd
                 pointsToAdd-=1
                 
-        resultsFile = open("PreviousResults.txt", "w")
-        resultsFile.write("first:%d\n" % (dictPR["first"]))
-        resultsFile.write("last:%d\n" % (dictPR["last"]))
-        resultsFile.write("f1:%d\n" % (dictPR["f1"]))
-        resultsFile.write("f2:%d\n" % (dictPR["f2"]))
-        resultsFile.write("f3:%d\n" % (dictPR["f3"]))
-        resultsFile.write("f4:%d\n" % (dictPR["f4"]))
-        resultsFile.write("f5:%d\n" % (dictPR["f5"]))
-        resultsFile.write("l1:%d\n" % (dictPR["l1"]))
-        resultsFile.write("l2:%d\n" % (dictPR["l2"]))
-        resultsFile.write("l3:%d\n" % (dictPR["l3"]))
-        resultsFile.write("l4:%d\n" % (dictPR["l4"]))
-        resultsFile.write("l5:%d\n" % (dictPR["l5"]))
-        resultsFile.close()
+
 
         dictOfNameRangeIndexes = {"f1":0,"f2":1,"f3":2,"f4":3,"f5":4,"l1":5,"l2":6,"l3":7,"l4":8,"l5":9}
 
@@ -136,7 +123,23 @@ def pickNameRange():
                 finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
 
         return finalListIndexes
-                
+
+def writeToResultsFileWithDict( dictNameRanges ):
+        resultsFile = open("PreviousResults.txt", "w")
+        resultsFile.write("first:%d\n" % (dictNameRanges["first"]))
+        resultsFile.write("last:%d\n" % (dictNameRanges["last"]))
+        resultsFile.write("f1:%d\n" % (dictNameRanges["f1"]))
+        resultsFile.write("f2:%d\n" % (dictNameRanges["f2"]))
+        resultsFile.write("f3:%d\n" % (dictNameRanges["f3"]))
+        resultsFile.write("f4:%d\n" % (dictNameRanges["f4"]))
+        resultsFile.write("f5:%d\n" % (dictNameRanges["f5"]))
+        resultsFile.write("l1:%d\n" % (dictNameRanges["l1"]))
+        resultsFile.write("l2:%d\n" % (dictNameRanges["l2"]))
+        resultsFile.write("l3:%d\n" % (dictNameRanges["l3"]))
+        resultsFile.write("l4:%d\n" % (dictNameRanges["l4"]))
+        resultsFile.write("l5:%d\n" % (dictNameRanges["l5"]))
+        resultsFile.close()
+        
 def sortNRListByIList( taggedDict, indexList ):
         finalSortedList = []
         for index in indexList:
