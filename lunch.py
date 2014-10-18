@@ -1,42 +1,55 @@
+#########################################################
+#       TSC Lunch                                       #
+#       ---------                                       #
+#       Split names signed up into 5 groups,            #
+#       Then randomly select an order for them.         #
+#       Uses previous results to ensure fairness.       #
+#                                                       #
+#       See README at:                                  #
+#       https://github.com/MattyAyOh/TSCLunch           #
+#########################################################
+
 import datetime
 import glob
 import os
 import random
 
-
-#################################################
-#Change this for number of minutes between groups
-#################################################
+####################################################
+# Change this for number of minutes between groups #
+####################################################
 minutesBetweenGroups = 8
-#################################################
+####################################################
 
-try:
-        newest = max(glob.iglob('CSVResponses/*.csv'), key=os.path.getctime)
-except ValueError:
-        print "Failure!  No CSV files found in CSVResponses folder.  Exiting script..."
-f = open(newest,'r')
+def loadResponses():
+        responsesFile = None
+        try:
+                newest = max(glob.iglob('CSVResponses/*.csv'), key=os.path.getctime)
+                responsesFile = open(newest,'r')
+        except ValueError:
+                print "Failure!  No CSV files found in CSVResponses folder.  Exiting script..."
+        return responsesFile
 
-def generatePreviousResultsFile():
+def writeToResultsFileWithDict( dictNameRanges ):
         resultsFile = open("PreviousResults.txt", "w")
-        resultsFile.write("first:0\n")
-        resultsFile.write("last:0\n")
-        resultsFile.write("f1:0\n")
-        resultsFile.write("f2:0\n")
-        resultsFile.write("f3:0\n")
-        resultsFile.write("f4:0\n")
-        resultsFile.write("f5:0\n")
-        resultsFile.write("l1:0\n")
-        resultsFile.write("l2:0\n")
-        resultsFile.write("l3:0\n")
-        resultsFile.write("l4:0\n")
-        resultsFile.write("l5:0\n")
+        resultsFile.write("first:%d\n" % (dictNameRanges["first"]))
+        resultsFile.write("last:%d\n" % (dictNameRanges["last"]))
+        resultsFile.write("f1:%d\n" % (dictNameRanges["f1"]))
+        resultsFile.write("f2:%d\n" % (dictNameRanges["f2"]))
+        resultsFile.write("f3:%d\n" % (dictNameRanges["f3"]))
+        resultsFile.write("f4:%d\n" % (dictNameRanges["f4"]))
+        resultsFile.write("f5:%d\n" % (dictNameRanges["f5"]))
+        resultsFile.write("l1:%d\n" % (dictNameRanges["l1"]))
+        resultsFile.write("l2:%d\n" % (dictNameRanges["l2"]))
+        resultsFile.write("l3:%d\n" % (dictNameRanges["l3"]))
+        resultsFile.write("l4:%d\n" % (dictNameRanges["l4"]))
+        resultsFile.write("l5:%d\n" % (dictNameRanges["l5"]))
         resultsFile.close()
         
-def generateNameRanges():
+def generateNameRanges(responsesFile):
         listOfFirstNames = []
         listOfLastNames = []
 
-        for line in f:
+        for line in responsesFile:
                 name = line.split(',')[1]
                 try:
                         listOfFirstNames.append(name.split(' ')[0].title().rstrip())
@@ -81,6 +94,10 @@ def loadPreviousResults():
         return dictPreviousResults
 
 def pickNameRange():
+        dictOfNameRangeIndexes = {"f1":0,"f2":1,"f3":2,"f4":3,"f5":4,"l1":5,"l2":6,"l3":7,"l4":8,"l5":9}
+        firstNameRanges = ['f1','f2','f3','f4','f5']
+        lastNameRanges = ['l1','l2','l3','l4','l5']
+        
         dictPR = loadPreviousResults()
         firstorlast = 2
         if( dictPR['first']-dictPR['last'] >= 2 ):
@@ -90,55 +107,71 @@ def pickNameRange():
         if( firstorlast == 2 ):
                 firstorlast = random.choice([0,1])
 
+        if firstorlast == 0:
+                dictPR['first']+=1
+                
+                firstNameRangeValues = [dictPR['f1'], dictPR['f2'], dictPR['f3'], dictPR['f4'], dictPR['f5']]
+                lowestValue = min(firstNameRangeValues)
+                highestSelected = 0
+                lowestNameRanges = []
+                for nameRange in firstNameRanges:
+                        if dictPR[nameRange] == lowestValue:
+                                lowestNameRanges.append(nameRange)
 
-        dictPR['first']+=1
-        firstNameRanges = ['f1','f2','f3','f4','f5']
-        firstNameRangeValues = [dictPR['f1'], dictPR['f2'], dictPR['f3'], dictPR['f4'], dictPR['f5']]
-        lowestValue = min(firstNameRangeValues)
-        highestSelected = 0
-        lowestNameRanges = []
-        for nameRange in firstNameRanges:
-                if dictPR[nameRange] == lowestValue:
-                        lowestNameRanges.append(nameRange)
-
-        newSortedNameRanges = []
-        newSortedNameRanges.append(random.choice(lowestNameRanges))
-        firstNameRanges.remove(newSortedNameRanges[-1])
-
-        while( len(firstNameRanges) > 0 ):
-                newSortedNameRanges.append(random.choice(firstNameRanges))
+                newSortedNameRanges = []
+                newSortedNameRanges.append(random.choice(lowestNameRanges))
                 firstNameRanges.remove(newSortedNameRanges[-1])
 
-        pointsToAdd = 4
-        for nameRange in newSortedNameRanges:
-                dictPR[nameRange]+=pointsToAdd
-                pointsToAdd-=1
+                while( len(firstNameRanges) > 0 ):
+                        newSortedNameRanges.append(random.choice(firstNameRanges))
+                        firstNameRanges.remove(newSortedNameRanges[-1])
+
+                pointsToAdd = 4
+                for nameRange in newSortedNameRanges:
+                        dictPR[nameRange]+=pointsToAdd
+                        pointsToAdd-=1
+
+                writeToResultsFileWithDict(dictPR)
+
+                finalListIndexes = []
+                for nameRange in newSortedNameRanges:
+                        finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
+
+                return [firstorlast, finalListIndexes]
+
+        if firstorlast == 1:
+                dictPR['last']+=1
                 
+                lastNameRangeValues = [dictPR['l1'], dictPR['l2'], dictPR['l3'], dictPR['l4'], dictPR['l5']]
+                lowestValue = min(lastNameRangeValues)
+                highestSelected = 0
+                lowestNameRanges = []
+                for nameRange in lastNameRanges:
+                        if dictPR[nameRange] == lowestValue:
+                                lowestNameRanges.append(nameRange)
+
+                newSortedNameRanges = []
+                newSortedNameRanges.append(random.choice(lowestNameRanges))
+                lastNameRanges.remove(newSortedNameRanges[-1])
+
+                while( len(lastNameRanges) > 0 ):
+                        newSortedNameRanges.append(random.choice(lastNameRanges))
+                        lastNameRanges.remove(newSortedNameRanges[-1])
+
+                pointsToAdd = 4
+                for nameRange in newSortedNameRanges:
+                        dictPR[nameRange]+=pointsToAdd
+                        pointsToAdd-=1
+
+                writeToResultsFileWithDict(dictPR)
+
+                finalListIndexes = []
+                for nameRange in newSortedNameRanges:
+                        finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
+
+                return [firstorlast, finalListIndexes]
 
 
-        dictOfNameRangeIndexes = {"f1":0,"f2":1,"f3":2,"f4":3,"f5":4,"l1":5,"l2":6,"l3":7,"l4":8,"l5":9}
-
-        finalListIndexes = []
-        for nameRange in newSortedNameRanges:
-                finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
-
-        return finalListIndexes
-
-def writeToResultsFileWithDict( dictNameRanges ):
-        resultsFile = open("PreviousResults.txt", "w")
-        resultsFile.write("first:%d\n" % (dictNameRanges["first"]))
-        resultsFile.write("last:%d\n" % (dictNameRanges["last"]))
-        resultsFile.write("f1:%d\n" % (dictNameRanges["f1"]))
-        resultsFile.write("f2:%d\n" % (dictNameRanges["f2"]))
-        resultsFile.write("f3:%d\n" % (dictNameRanges["f3"]))
-        resultsFile.write("f4:%d\n" % (dictNameRanges["f4"]))
-        resultsFile.write("f5:%d\n" % (dictNameRanges["f5"]))
-        resultsFile.write("l1:%d\n" % (dictNameRanges["l1"]))
-        resultsFile.write("l2:%d\n" % (dictNameRanges["l2"]))
-        resultsFile.write("l3:%d\n" % (dictNameRanges["l3"]))
-        resultsFile.write("l4:%d\n" % (dictNameRanges["l4"]))
-        resultsFile.write("l5:%d\n" % (dictNameRanges["l5"]))
-        resultsFile.close()
         
 def sortNRListByIList( taggedDict, indexList ):
         finalSortedList = []
@@ -146,7 +179,7 @@ def sortNRListByIList( taggedDict, indexList ):
                 finalSortedList.append(taggedDict[index])
         return finalSortedList
                 
-def formatNameRanges( listNameRanges ):
+def formatNameRanges( listNameRanges, FoL ):
         longestFirstName = 0
         longestFirstName2 = 0
         for pair in listNameRanges:
@@ -156,7 +189,10 @@ def formatNameRanges( listNameRanges ):
                         longestFirstName2 = len(pair[1])
 
         t = datetime.datetime.now()
-        print "First Names:"
+        if FoL == 0:
+                print "First Names:"
+        elif FoL == 1:
+                print "Last Names:"
         for pair in listNameRanges:
                 time = t.strftime("%H:%M")
                 print "%*s - %-*s -> %s" % (longestFirstName, pair[0], longestFirstName2, pair[1],time)
@@ -164,13 +200,21 @@ def formatNameRanges( listNameRanges ):
 
 
 def main():
+        respFile = loadResponses()
+        if(not(respFile)):
+                return
         if(not(os.path.isfile("PreviousResults.txt"))):
-                generatePreviousResultsFile()
-        allNameRanges = generateNameRanges()
+                dictionaryBlankResultsSheet = {"first":0,"last":0,"f1":0,"f2":0,"f3":0,"f4":0,"f5":0,"l1":0,"l2":0,"l3":0,"l4":0,"l5":0}
+                writeToResultsFileWithDict( dictionaryBlankResultsSheet )
+
+        allNameRanges = generateNameRanges(respFile)
         taggedNameRanges = tagNameRanges(allNameRanges)
-        listIndexes = pickNameRange()
+        firstOrLastAndListIndexes = pickNameRange()
+        firstOrLast = firstOrLastAndListIndexes[0]
+        listIndexes = firstOrLastAndListIndexes[1]
         finalList = sortNRListByIList(taggedNameRanges, listIndexes)
-        formatNameRanges(finalList)
+        formatNameRanges(finalList, firstOrLast)
+        raw_input("Press Enter to Close")
 
 if __name__ == "__main__":
     main()
