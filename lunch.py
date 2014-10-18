@@ -96,9 +96,8 @@ def loadPreviousResults():
 
 def pickNameRange():
         dictOfNameRangeIndexes = {"f1":0,"f2":1,"f3":2,"f4":3,"f5":4,"l1":5,"l2":6,"l3":7,"l4":8,"l5":9}
-        firstNameRanges = ['f1','f2','f3','f4','f5']
-        lastNameRanges = ['l1','l2','l3','l4','l5']
-        
+        possibleNameRanges = []
+        possibleNameRangeValues = []
         dictPR = loadPreviousResults()
         firstorlast = 2
         if( dictPR['first']-dictPR['last'] >= 3 ):
@@ -109,68 +108,53 @@ def pickNameRange():
                 firstorlast = random.choice([0,1])
 
         if firstorlast == 0:
+                possibleNameRanges = ['f1','f2','f3','f4','f5']
                 dictPR['first']+=1
-                
-                firstNameRangeValues = [dictPR['f1'], dictPR['f2'], dictPR['f3'], dictPR['f4'], dictPR['f5']]
-                lowestValue = min(firstNameRangeValues)
-                highestSelected = 0
-                lowestNameRanges = []
-                for nameRange in firstNameRanges:
-                        if dictPR[nameRange] == lowestValue:
-                                lowestNameRanges.append(nameRange)
-
-                newSortedNameRanges = []
-                newSortedNameRanges.append(random.choice(lowestNameRanges))
-                firstNameRanges.remove(newSortedNameRanges[-1])
-
-                while( len(firstNameRanges) > 0 ):
-                        newSortedNameRanges.append(random.choice(firstNameRanges))
-                        firstNameRanges.remove(newSortedNameRanges[-1])
-
-                pointsToAdd = 4
-                for nameRange in newSortedNameRanges:
-                        dictPR[nameRange]+=pointsToAdd
-                        pointsToAdd-=1
-
-                writeToResultsFileWithDict(dictPR)
-
-                finalListIndexes = []
-                for nameRange in newSortedNameRanges:
-                        finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
-
-                return [firstorlast, finalListIndexes]
+                possibleNameRangeValues = [dictPR['f1'], dictPR['f2'], dictPR['f3'], dictPR['f4'], dictPR['f5']]
 
         if firstorlast == 1:
+
+                possibleNameRanges = ['l1','l2','l3','l4','l5']
                 dictPR['last']+=1
-                
-                lastNameRangeValues = [dictPR['l1'], dictPR['l2'], dictPR['l3'], dictPR['l4'], dictPR['l5']]
-                lowestValue = min(lastNameRangeValues)
-                highestSelected = 0
-                lowestNameRanges = []
-                for nameRange in lastNameRanges:
-                        if dictPR[nameRange] == lowestValue:
-                                lowestNameRanges.append(nameRange)
+                possibleNameRangeValues = [dictPR['l1'], dictPR['l2'], dictPR['l3'], dictPR['l4'], dictPR['l5']]
 
-                newSortedNameRanges = []
-                newSortedNameRanges.append(random.choice(lowestNameRanges))
-                lastNameRanges.remove(newSortedNameRanges[-1])
+        
+        #Find lowest values
+        #Select one of them, they are winner
+        #Remove them from possibleNameRanges
+        #Keep picking the rest, and remove from possibleNameRanges
+        #Now have newSortedNameRanges
+        #Go through newSortedNameRanges and add points appropriately
+        #Write results to file
+        #Create list of sorted indexes that map to newSortedNameRanges
+        #Return that and the first or last name label
+        lowestValue = min(possibleNameRangeValues)
+        highestSelected = 0
+        lowestNameRanges = []
+        for nameRange in possibleNameRanges:
+                if dictPR[nameRange] == lowestValue:
+                        lowestNameRanges.append(nameRange)
 
-                while( len(lastNameRanges) > 0 ):
-                        newSortedNameRanges.append(random.choice(lastNameRanges))
-                        lastNameRanges.remove(newSortedNameRanges[-1])
+        newSortedNameRanges = []
+        newSortedNameRanges.append(random.choice(lowestNameRanges))
+        possibleNameRanges.remove(newSortedNameRanges[-1])
 
-                pointsToAdd = 4
-                for nameRange in newSortedNameRanges:
-                        dictPR[nameRange]+=pointsToAdd
-                        pointsToAdd-=1
+        while( len(possibleNameRanges) > 0 ):
+                newSortedNameRanges.append(random.choice(possibleNameRanges))
+                possibleNameRanges.remove(newSortedNameRanges[-1])
 
-                writeToResultsFileWithDict(dictPR)
+        pointsToAdd = 4
+        for nameRange in newSortedNameRanges:
+                dictPR[nameRange]+=pointsToAdd
+                pointsToAdd-=1
 
-                finalListIndexes = []
-                for nameRange in newSortedNameRanges:
-                        finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
+        writeToResultsFileWithDict(dictPR)
 
-                return [firstorlast, finalListIndexes]
+        finalListIndexes = []
+        for nameRange in newSortedNameRanges:
+                finalListIndexes.append(dictOfNameRangeIndexes[nameRange])
+
+        return [firstorlast, finalListIndexes]
 
 
         
