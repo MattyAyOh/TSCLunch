@@ -62,9 +62,7 @@ def generateNameRanges(responsesFile):
                         listOfFirstNames.append(re.sub(r'\W+', '', name.title()))
 
         listOfFirstNames = sorted(listOfFirstNames[1:-1])
-        print listOfFirstNames
         listOfLastNames = sorted(listOfLastNames[1:-1])
-        print listOfLastNames
 
         firstSplitAmount = len(listOfFirstNames)/5
         lastSplitAmount = len(listOfLastNames)/5
