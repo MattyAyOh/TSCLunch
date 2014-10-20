@@ -3,6 +3,7 @@ TSCLunch
 How to use:
 ------
 * Download the lunch responses from Google docs as a csv file, into (Script-Directory)/CSVResponses
+  * (Google Docs Window, not web browser window) File -> Download As -> Comma Seperated Values
 * Make sure python 2.7.* is installed
 * Run python script 
   * If using Windows, double click the script

@@ -14,6 +14,7 @@ import glob
 import os
 import random
 import Tkinter
+import re
 
 ####################################################
 # Change this for number of minutes between groups #
@@ -52,14 +53,18 @@ def generateNameRanges(responsesFile):
 
         for line in responsesFile:
                 name = line.split(',')[1]
+                if(len(re.sub(r'\W+', '', name.split(' ')[0].title())) == 1):
+                	continue
                 try:
-                        listOfFirstNames.append(name.split(' ')[0].title().rstrip())
-                        listOfLastNames.append(name.split(' ')[1].title().rstrip())
+                        listOfFirstNames.append(re.sub(r'\W+', '', name.split(' ')[0].title()))
+                        listOfLastNames.append(re.sub(r'\W+', '', name.split(' ')[-1].title()))
                 except IndexError:
-                        listOfFirstNames.append(name.title().rstrip())
+                        listOfFirstNames.append(re.sub(r'\W+', '', name.title()))
 
         listOfFirstNames = sorted(listOfFirstNames[1:-1])
+        print listOfFirstNames
         listOfLastNames = sorted(listOfLastNames[1:-1])
+        print listOfLastNames
 
         firstSplitAmount = len(listOfFirstNames)/5
         lastSplitAmount = len(listOfLastNames)/5
