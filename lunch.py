@@ -16,6 +16,10 @@ import random
 import Tkinter
 import re
 
+top = Tkinter.Tk()
+# Code to add widgets will go here...
+top.mainloop()
+
 ####################################################
 # Change this for number of minutes between groups #
 ####################################################
