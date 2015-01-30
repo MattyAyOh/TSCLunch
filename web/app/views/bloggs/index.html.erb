@@ -1,0 +1,19 @@
+<h1>Listing articles</h1>
+
+<%= link_to 'New article', new_blogg_path %>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Text</th>
+  </tr>
+
+  <% @articles.each do |blogg| %>
+      <tr>
+        <td><%= blogg.title %></td>
+        <td><%= blogg.text %></td>
+        <td><%= link_to 'Show', bloggs_path(blogg) %></td>
+        <td><%= link_to 'Edit', edit_blogg_path(blogg) %></td>
+      </tr>
+  <% end %>
+</table>
