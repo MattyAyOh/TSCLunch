@@ -12,6 +12,8 @@ class BloggsController < ApplicationController
   end
 
   def edit
+    puts 'EDITING'
+    puts params
     @article = Blogg.find(params[:id])
   end
 
@@ -27,12 +29,20 @@ class BloggsController < ApplicationController
 
   def update
     @article = Blogg.find(params[:id])
-
+    puts 'LOOK AT ME!!!'
+    puts article_params
     if @article.update(article_params)
       redirect_to @article
     else
       render :edit
     end
+  end
+
+  def destroy
+    @tempBlog = Blogg.find(params[:id])
+    @tempBlog.destroy
+
+    redirect_to bloggs_path
   end
 
   private
