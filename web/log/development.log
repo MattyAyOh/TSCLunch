@@ -6814,3 +6814,135 @@ Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1
 
 
 Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-02-26 17:57:14 -0500
+
+
+Started DELETE "/bloggs/3/comments/3" for ::1 at 2015-02-26 18:00:56 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8fu2GUd/Dm/mB20Xg1CSd1ZLiqtbK7t59s29uCusB3+4gjVeOXFvZ9MYx9zgEgaRV82Y+T0RkRvZdQgz/O+2eA==", "blogg_id"=>"3", "id"=>"3"}
+Filter chain halted as #<Proc:0x007fcab1c13530@/usr/local/lib/ruby/gems/2.1.0/gems/actionpack-4.2.0/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started DELETE "/bloggs/3/comments/3" for ::1 at 2015-02-26 18:01:00 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"8fu2GUd/Dm/mB20Xg1CSd1ZLiqtbK7t59s29uCusB3+4gjVeOXFvZ9MYx9zgEgaRV82Y+T0RkRvZdQgz/O+2eA==", "blogg_id"=>"3", "id"=>"3"}
+Completed 500 Internal Server Error in 2ms
+
+ArgumentError (wrong number of arguments (0 for 1)):
+  app/models/blogg.rb:2:in `<class:Blogg>'
+  app/models/blogg.rb:1:in `<top (required)>'
+  app/controllers/comments_controller.rb:11:in `destroy'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.5ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (20.9ms)
+
+
+Started GET "/bloggs/3" for ::1 at 2015-02-26 18:01:48 -0500
+Processing by BloggsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBlogg Load (0.1ms)[0m  [1mSELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blogg_id" = ?  [["blogg_id", 3]]
+  Rendered comments/_comment.html.erb (0.7ms)
+  Rendered comments/_form.html.erb (1.5ms)
+  Rendered bloggs/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 87ms (Views: 81.4ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:48 -0500
+
+
+Started DELETE "/bloggs/3/comments/3" for ::1 at 2015-02-26 18:01:50 -0500
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"geN+0Ce38GJrR6GBo7BQmN4NWf56KESTgP25H1WImNvImv2XWbmRal5YC0rA8sR+34tLrBwSbvGvRQyUgssp3A==", "blogg_id"=>"3", "id"=>"3"}
+  [1m[36mBlogg Load (0.1ms)[0m  [1mSELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.1ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."blogg_id" = ? AND "comments"."id" = ? LIMIT 1  [["blogg_id", 3], ["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 3]]
+  [1m[36m (1.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/bloggs/3
+Completed 302 Found in 5ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/bloggs/3" for ::1 at 2015-02-26 18:01:50 -0500
+Processing by BloggsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBlogg Load (0.1ms)[0m  SELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blogg_id" = ?[0m  [["blogg_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.erb (2.0ms)
+  Rendered bloggs/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 57ms (Views: 56.4ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-02-26 18:01:50 -0500
+
+
+Started GET "/bloggs" for ::1 at 2015-02-26 18:01:52 -0500
+Processing by BloggsController#index as HTML
+  [1m[35mBlogg Load (0.1ms)[0m  SELECT "bloggs".* FROM "bloggs"
+  Rendered bloggs/index.html.erb within layouts/application (2.9ms)
+Completed 200 OK in 67ms (Views: 66.1ms | ActiveRecord: 0.1ms)
