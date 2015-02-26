@@ -12,8 +12,11 @@
       <tr>
         <td><%= blogg.title %></td>
         <td><%= blogg.text %></td>
-        <td><%= link_to 'Show', bloggs_path(blogg) %></td>
+        <td><%= link_to 'Show', blogg_path(blogg) %></td>
         <td><%= link_to 'Edit', edit_blogg_path(blogg) %></td>
+        <td><%= link_to 'Destroy', blogg_path(blogg),
+                        method: :delete,
+                        data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
 </table>
