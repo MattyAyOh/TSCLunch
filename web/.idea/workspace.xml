@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="af1941da-e602-42e6-8cfc-149c74c5a104" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/development.sqlite3" afterPath="$PROJECT_DIR$/db/development.sqlite3" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/log/development.log" afterPath="$PROJECT_DIR$/log/development.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/article.rb" afterPath="$PROJECT_DIR$/app/models/article.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/blogg.rb" afterPath="$PROJECT_DIR$/app/models/blogg.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="web.iws" />
@@ -44,11 +43,31 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="20150226223339_create_comments.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/db/migrate/20150226223339_create_comments.rb">
+      <file leaf-file-name="comment.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="article.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/models/article.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="blogg.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/models/blogg.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.04812834" vertical-offset="0" max-vertical-offset="935">
+              <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -119,13 +138,14 @@
         <option value="$PROJECT_DIR$/app/views/articles/index.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/articles_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/welcome/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/models/blogg.rb" />
         <option value="$PROJECT_DIR$/app/views/bloggs/show.html.erb" />
         <option value="$PROJECT_DIR$/app/views/bloggs/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/bloggs/edit.html.erb" />
         <option value="$PROJECT_DIR$/app/views/bloggs/new.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/bloggs_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/bloggs/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/models/article.rb" />
+        <option value="$PROJECT_DIR$/app/models/blogg.rb" />
       </list>
     </option>
   </component>
@@ -852,13 +872,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/article.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="529">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/bin/rake">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.23346303" vertical-offset="0" max-vertical-offset="514">
@@ -898,13 +911,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.05944518" vertical-offset="0" max-vertical-offset="757">
           <caret line="3" column="3" selection-start-line="3" selection-start-column="3" selection-end-line="3" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/models/blogg.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="150">
-          <caret line="0" column="6" selection-start-line="0" selection-start-column="6" selection-end-line="0" selection-end-column="6" />
         </state>
       </provider>
     </entry>
@@ -955,6 +961,14 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/db/migrate/20150226223339_create_comments.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/bloggs_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="870">
@@ -963,10 +977,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/db/migrate/20150226223339_create_comments.rb">
+    <entry file="file://$PROJECT_DIR$/app/models/comment.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="935">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/article.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="165">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/models/blogg.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.04812834" vertical-offset="0" max-vertical-offset="935">
+          <caret line="3" column="34" selection-start-line="3" selection-start-column="34" selection-end-line="3" selection-end-column="34" />
           <folding />
         </state>
       </provider>
