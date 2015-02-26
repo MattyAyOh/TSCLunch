@@ -6220,3 +6220,130 @@ Migrating to CreateComments (20150226223339)
             FROM sqlite_temp_master
             WHERE name='index_comments_on_blogg_id' AND type='index'
 [0m
+
+
+Started GET "/" for ::1 at 2015-02-26 17:45:16 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 179ms (Views: 178.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-02-26 17:45:17 -0500
+
+
+Started GET "/bloggs" for ::1 at 2015-02-26 17:45:18 -0500
+Processing by BloggsController#index as HTML
+  [1m[35mBlogg Load (0.2ms)[0m  SELECT "bloggs".* FROM "bloggs"
+  Rendered bloggs/index.html.erb within layouts/application (5.2ms)
+Completed 200 OK in 81ms (Views: 72.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/bloggs/3" for ::1 at 2015-02-26 17:45:20 -0500
+Processing by BloggsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mBlogg Load (0.1ms)[0m  [1mSELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.2ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."blogg_id" = ?  [["blogg_id", 3]]
+  Rendered bloggs/show.html.erb within layouts/application (34.0ms)
+Completed 200 OK in 91ms (Views: 89.1ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/bloggs/3/comments" for ::1 at 2015-02-26 17:45:25 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"H5+KAdJDRhQrjpssYd1kAyTgHmkqlAcRgvnzS+1qMmhW5glGrE0nHB6RMecCn/DlJWYMO0yuLXOtQUbAOimDbw==", "comment"=>{"commenter"=>"matt", "body"=>"please"}, "commit"=>"Create Comment", "blogg_id"=>"3"}
+  [1m[36mArticle Load (0.1ms)[0m  [1mSELECT  "articles".* FROM "articles" WHERE "articles"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Article with 'id'=):
+  app/controllers/comments_controller.rb:3:in `create'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (5.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.8ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (30.9ms)
+
+
+Started POST "/bloggs/3/comments" for ::1 at 2015-02-26 17:45:57 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ccoKaV+bddU02lLRe7+yIpqRWq64LajzILsvf8zHfZg4s4kuIZUU3QHF+BoY/SbEmxdI/N4XgpEPA5r0G4TMnw==", "comment"=>{"commenter"=>"matt", "body"=>"please"}, "commit"=>"Create Comment", "blogg_id"=>"3"}
+  [1m[35mBlogg Load (0.1ms)[0m  SELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1  [["id", nil]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Blogg with 'id'=):
+  app/controllers/comments_controller.rb:3:in `create'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (1.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.7ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (19.4ms)
+
+
+Started POST "/bloggs/3/comments" for ::1 at 2015-02-26 17:46:28 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ccoKaV+bddU02lLRe7+yIpqRWq64LajzILsvf8zHfZg4s4kuIZUU3QHF+BoY/SbEmxdI/N4XgpEPA5r0G4TMnw==", "comment"=>{"commenter"=>"matt", "body"=>"please"}, "commit"=>"Create Comment", "blogg_id"=>"3"}
+  [1m[36mBlogg Load (0.1ms)[0m  [1mSELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1[0m  [["id", nil]]
+Completed 404 Not Found in 4ms
+
+ActiveRecord::RecordNotFound (Couldn't find Blogg with 'id'=):
+  app/controllers/comments_controller.rb:3:in `create'
+
+
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_source.erb (4.3ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/_web_console.html.erb (0.9ms)
+  Rendered /usr/local/lib/ruby/gems/2.1.0/gems/web-console-2.0.0/lib/action_dispatch/templates/rescues/diagnostics.html.erb within rescues/layout (22.0ms)
+
+
+Started POST "/bloggs/3/comments" for ::1 at 2015-02-26 17:47:17 -0500
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ccoKaV+bddU02lLRe7+yIpqRWq64LajzILsvf8zHfZg4s4kuIZUU3QHF+BoY/SbEmxdI/N4XgpEPA5r0G4TMnw==", "comment"=>{"commenter"=>"matt", "body"=>"please"}, "commit"=>"Create Comment", "blogg_id"=>"3"}
+  [1m[35mBlogg Load (0.1ms)[0m  SELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "comments" ("commenter", "body", "blogg_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["commenter", "matt"], ["body", "please"], ["blogg_id", 3], ["created_at", "2015-02-26 22:47:17.529764"], ["updated_at", "2015-02-26 22:47:17.529764"]]
+  [1m[36m (0.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/bloggs/3
+Completed 302 Found in 14ms (ActiveRecord: 1.5ms)
+
+
+Started GET "/bloggs/3" for ::1 at 2015-02-26 17:47:17 -0500
+Processing by BloggsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mBlogg Load (0.1ms)[0m  SELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.1ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."blogg_id" = ?[0m  [["blogg_id", 3]]
+  Rendered bloggs/show.html.erb within layouts/application (3.9ms)
+Completed 200 OK in 54ms (Views: 53.2ms | ActiveRecord: 0.2ms)
