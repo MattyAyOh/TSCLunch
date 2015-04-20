@@ -1,2 +1,3 @@
 *.csv
 PreviousResults.txt
+web/tmp/*
