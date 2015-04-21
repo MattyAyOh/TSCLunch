@@ -1,3 +1,4 @@
 *.csv
 PreviousResults.txt
 web/tmp/*
+workspace.xml
