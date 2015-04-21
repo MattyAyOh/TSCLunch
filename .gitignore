@@ -2,3 +2,4 @@
 PreviousResults.txt
 web/tmp/*
 workspace.xml
+development.sqlite3
