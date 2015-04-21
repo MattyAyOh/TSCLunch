@@ -19,4 +19,8 @@
                         data: { confirm: 'Are you sure?' } %></td>
       </tr>
   <% end %>
+
+  <li>
+    <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
+  </li>
 </table>

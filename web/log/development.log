@@ -9847,3 +9847,822 @@ Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1
 
 
 Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 20:13:12 -0400
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:09:03 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (7.5ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (42.5ms)
+Completed 200 OK in 221ms (Views: 198.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:09:03 -0400
+
+
+Started GET "/users/confirmation/new" for ::1 at 2015-04-20 21:09:04 -0400
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (5.6ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/confirmations/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 66ms (Views: 65.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/confirmation" for ::1 at 2015-04-20 21:09:06 -0400
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/f3fBAsPVnSzdeln/qciu7m61PEkBn8opcMvoDUdSrD6QbIfSxqxI1ubazD8DWrN3M8PsVFAbkPWOgt8/fNNvQ==", "user"=>{"email"=>"mattyayoh@gmail.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."unconfirmed_email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["unconfirmed_email", "mattyayoh@gmail.com"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mattyayoh@gmail.com"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "3abac3045d7ec4fe5b2badd7f81bf6576225da87396f5f5ca852618c765d04bd"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.4ms)[0m  UPDATE "users" SET "confirmation_token" = ?, "confirmation_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmation_token", "3abac3045d7ec4fe5b2badd7f81bf6576225da87396f5f5ca852618c765d04bd"], ["confirmation_sent_at", "2015-04-21 01:09:07.207081"], ["updated_at", "2015-04-21 01:09:07.207584"], ["id", 1]]
+  [1m[36m (1.5ms)[0m  [1mcommit transaction[0m
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/mailer/confirmation_instructions.html.erb (2.5ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 172.3ms
+
+Sent mail to mattyayoh@gmail.com (220.3ms)
+Date: Mon, 20 Apr 2015 21:09:07 -0400
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mattyayoh@gmail.com
+Message-ID: <5535a33360ea9_14c13fe1150e91481667@mayo.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mattyayoh@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=sScycg4Uisxv4aC-kDM2">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 637ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:09:07 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (2.7ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 63ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:09:07 -0400
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:11:29 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (3.0ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 65ms (Views: 63.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:11:30 -0400
+
+
+Started GET "/users/confirmation/new" for ::1 at 2015-04-20 21:11:30 -0400
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (4.0ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/confirmations/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 66ms (Views: 65.6ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/confirmation" for ::1 at 2015-04-20 21:11:33 -0400
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"5+TjW3qnezgKqsMOe1D6W0sLQhWAQrww4NJyt4eLTDTgWI5AOrKcb+JEQVl5+rItLn6ZVfUErVuTK1ZrT2VLOQ==", "user"=>{"email"=>"mattyayoh@gmail.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."unconfirmed_email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["unconfirmed_email", "mattyayoh@gmail.com"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mattyayoh@gmail.com"]]
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "df324de29eac911bca253f9205ef7298c4ed32f2de36801881a6d10458436d52"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "confirmation_token" = ?, "confirmation_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmation_token", "df324de29eac911bca253f9205ef7298c4ed32f2de36801881a6d10458436d52"], ["confirmation_sent_at", "2015-04-21 01:11:33.417119"], ["updated_at", "2015-04-21 01:11:33.417632"], ["id", 1]]
+  [1m[36m (0.5ms)[0m  [1mcommit transaction[0m
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/mailer/confirmation_instructions.html.erb (2.0ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 9.9ms
+
+Sent mail to mattyayoh@gmail.com (8.2ms)
+Date: Mon, 20 Apr 2015 21:11:33 -0400
+From: please-change-me-at-config-initializers-devise@example.com
+Reply-To: please-change-me-at-config-initializers-devise@example.com
+To: mattyayoh@gmail.com
+Message-ID: <5535a3c569872_14c13fe117c391041762@mayo.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mattyayoh@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=QYCZywMqAeptT75JUaPA">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 31ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:11:33 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (3.0ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 63ms (Views: 62.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:11:33 -0400
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:12:04 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (8.4ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (30.7ms)
+Completed 200 OK in 184ms (Views: 161.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:12:04 -0400
+
+
+Started GET "/users/confirmation/new" for ::1 at 2015-04-20 21:12:05 -0400
+Processing by Devise::ConfirmationsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (4.2ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/confirmations/new.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 63ms (Views: 62.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/confirmation" for ::1 at 2015-04-20 21:12:08 -0400
+Processing by Devise::ConfirmationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Xj/H5GQe9YPy1ZQezGx3gCT2lLihm2jEZQXp2TxR1xNZg6r/JAsS1Bo7FknOxj/2QYNP+NTdea8W/M0F9L/QHg==", "user"=>{"email"=>"mattyayoh@gmail.com"}, "commit"=>"Resend confirmation instructions"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."unconfirmed_email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["unconfirmed_email", "mattyayoh@gmail.com"]]
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "mattyayoh@gmail.com"]]
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "00b4efe8831515c7e94e23d9911b02222eea10f8b812df9fec0dfea216c7446a"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmation_token" = ?, "confirmation_sent_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmation_token", "00b4efe8831515c7e94e23d9911b02222eea10f8b812df9fec0dfea216c7446a"], ["confirmation_sent_at", "2015-04-21 01:12:08.766509"], ["updated_at", "2015-04-21 01:12:08.766995"], ["id", 1]]
+  [1m[36m (1.4ms)[0m  [1mcommit transaction[0m
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/mailer/confirmation_instructions.html.erb (2.4ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 136.6ms
+
+Sent mail to mattyayoh@gmail.com (9.4ms)
+Date: Mon, 20 Apr 2015 21:12:08 -0400
+From: mayo@127.0.0.1
+Reply-To: mayo@127.0.0.1
+To: mattyayoh@gmail.com
+Message-ID: <5535a3e8dff01_14eb3ff33adc6c6c906de@mayo.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome mattyayoh@gmail.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=U6wNj2zZNx8VASmLPc_6">Confirm my account</a></p>
+
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 389ms (ActiveRecord: 2.3ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:12:08 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (4.0ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 59ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:12:09 -0400
+
+
+Started GET "/users/confirmation?confirmation_token=U6wNj2zZNx8VASmLPc_6" for ::1 at 2015-04-20 21:12:26 -0400
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"U6wNj2zZNx8VASmLPc_6"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "00b4efe8831515c7e94e23d9911b02222eea10f8b812df9fec0dfea216c7446a"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  UPDATE "users" SET "confirmation_token" = ?, "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["confirmation_token", nil], ["confirmed_at", "2015-04-21 01:12:26.836282"], ["updated_at", "2015-04-21 01:12:26.836739"], ["id", 1]]
+  [1m[36m (1.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 8ms (ActiveRecord: 1.6ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:12:26 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (2.8ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 63ms (Views: 62.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:12:26 -0400
+
+
+Started POST "/users/sign_in" for ::1 at 2015-04-20 21:12:29 -0400
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"XhyUbrV9UqGau/kLa1izRK/8SzbBPo8E5usrLAOZcm9ZoPl19Wi19nJVe1xp8vsyyomQdrR4nm+VEg/wy3d1Yg==", "user"=>{"email"=>"mattyayoh@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["email", "mattyayoh@gmail.com"]]
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.2ms)[0m  UPDATE "users" SET "last_sign_in_at" = ?, "current_sign_in_at" = ?, "last_sign_in_ip" = ?, "current_sign_in_ip" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?  [["last_sign_in_at", "2015-04-21 01:12:29.191036"], ["current_sign_in_at", "2015-04-21 01:12:29.191036"], ["last_sign_in_ip", "::1"], ["current_sign_in_ip", "::1"], ["sign_in_count", 1], ["updated_at", "2015-04-21 01:12:29.192120"], ["id", 1]]
+  [1m[36m (0.8ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/bloggs/2/edit
+Completed 302 Found in 86ms (ActiveRecord: 1.2ms)
+
+
+Started GET "/bloggs/2/edit" for ::1 at 2015-04-20 21:12:29 -0400
+Processing by BloggsController#edit as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36mBlogg Load (0.2ms)[0m  [1mSELECT  "bloggs".* FROM "bloggs" WHERE "bloggs"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered bloggs/_form.html.erb (3.5ms)
+  Rendered bloggs/edit.html.erb within layouts/application (5.1ms)
+Completed 200 OK in 75ms (Views: 64.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:12:29 -0400
+
+
+Started GET "/bloggs" for ::1 at 2015-04-20 21:12:31 -0400
+Processing by BloggsController#index as HTML
+  [1m[35mBlogg Load (0.2ms)[0m  SELECT "bloggs".* FROM "bloggs"
+  Rendered bloggs/index.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 61ms (Views: 60.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for ::1 at 2015-04-20 21:13:48 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Redirected to http://localhost:3000/
+Filter chain halted as :require_no_authentication rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.1ms)
+
+
+Started GET "/" for ::1 at 2015-04-20 21:13:48 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 59ms (Views: 58.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/bloggs" for ::1 at 2015-04-20 21:13:49 -0400
+Processing by BloggsController#index as HTML
+  [1m[35mBlogg Load (0.2ms)[0m  SELECT "bloggs".* FROM "bloggs"
+  Rendered bloggs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 69ms (Views: 68.1ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-20 21:17:43 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.6ms)
+Completed 200 OK in 62ms (Views: 61.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:17:43 -0400
+
+
+Started GET "/" for ::1 at 2015-04-20 21:17:44 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.2ms)
+Completed 200 OK in 55ms (Views: 54.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:17:44 -0400
+
+
+Started GET "/bloggs" for ::1 at 2015-04-20 21:17:48 -0400
+Processing by BloggsController#index as HTML
+  [1m[36mBlogg Load (0.1ms)[0m  [1mSELECT "bloggs".* FROM "bloggs"[0m
+  Rendered bloggs/index.html.erb within layouts/application (3.4ms)
+Completed 200 OK in 71ms (Views: 70.0ms | ActiveRecord: 0.1ms)
+
+
+Started DELETE "/users/sign_out" for ::1 at 2015-04-20 21:17:50 -0400
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"b+sy3AJDrpFb9pzaWg8u4FAREXRD57gehmVyu9yUZWWlN85UQZBsyTlbPlpW7MRIAazdUdBJxDRG9b5NxFiEhw=="}
+  [1m[35mUser Load (0.1ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 5ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for ::1 at 2015-04-20 21:17:50 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 56ms (Views: 55.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:50 -0400
+
+
+Started GET "/bloggs" for ::1 at 2015-04-20 21:17:51 -0400
+Processing by BloggsController#index as HTML
+  [1m[36mBlogg Load (0.2ms)[0m  [1mSELECT "bloggs".* FROM "bloggs"[0m
+  Rendered bloggs/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 55ms (Views: 54.8ms | ActiveRecord: 0.2ms)
+
+
+Started DELETE "/bloggs/2" for ::1 at 2015-04-20 21:17:54 -0400
+Processing by BloggsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"qhq081JLVPdFywhV2NazuHFwdk8fcidQOlusBKB587IM2s+RA32owIWY3roCj0wRqD/Ve241jrFKPPBRiha7Vw==", "id"=>"2"}
+Completed 401 Unauthorized in 1ms
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:17:55 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (3.0ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 76ms (Views: 75.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:17:55 -0400
+
+
+Started GET "/users/sign_up" for ::1 at 2015-04-20 21:18:00 -0400
+Processing by Devise::RegistrationsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (2.1ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/registrations/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 79ms (Views: 78.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2015-04-20 21:18:08 -0400
+Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"L8YlUjQAAm+/rVlsjIOzE48Ij5efPilBHdOp5yYNex6JBl4wZTb+WH/+j4NW2ky6Vkcso+55gKBttPWyDGIz+w==", "user"=>{"email"=>"testing@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mUser Exists (0.2ms)[0m  [1mSELECT  1 AS one FROM "users" WHERE "users"."email" = 'testing@test.com' LIMIT 1[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["confirmation_token", "64b147603d754b2138997908c8079b56f01031105daf40f51d57d45613d9bfb4"]]
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "users" ("email", "encrypted_password", "created_at", "updated_at", "confirmation_token", "confirmation_sent_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["email", "testing@test.com"], ["encrypted_password", "$2a$10$0c25p84b8kFK/5BX0ahqkOslqynmpTJEpmEMMT1GxhcYfFtO/mfVm"], ["created_at", "2015-04-21 01:18:08.706149"], ["updated_at", "2015-04-21 01:18:08.706149"], ["confirmation_token", "64b147603d754b2138997908c8079b56f01031105daf40f51d57d45613d9bfb4"], ["confirmation_sent_at", "2015-04-21 01:18:08.707406"]]
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/mailer/confirmation_instructions.html.erb (2.1ms)
+
+Devise::Mailer#confirmation_instructions: processed outbound mail in 10.7ms
+
+Sent mail to testing@test.com (7.7ms)
+Date: Mon, 20 Apr 2015 21:18:08 -0400
+From: mayo@127.0.0.1
+Reply-To: mayo@127.0.0.1
+To: testing@test.com
+Message-ID: <5535a550b0384_14eb3ff33af7bbfc90719@mayo.local.mail>
+Subject: Confirmation instructions
+Mime-Version: 1.0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<p>Welcome testing@test.com!</p>
+
+<p>You can confirm your account email through the link below:</p>
+
+<p><a href="http://localhost:3000/users/confirmation?confirmation_token=-bt8pDd3e8Zq_FDSk7qv">Confirm my account</a></p>
+
+  [1m[35m (0.7ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 124ms (ActiveRecord: 1.3ms)
+
+
+Started GET "/" for ::1 at 2015-04-20 21:18:08 -0400
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.3ms)
+Completed 200 OK in 59ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:18:08 -0400
+
+
+Started GET "/users/confirmation?confirmation_token=-bt8pDd3e8Zq_FDSk7qv" for ::1 at 2015-04-20 21:18:21 -0400
+Processing by Devise::ConfirmationsController#show as HTML
+  Parameters: {"confirmation_token"=>"-bt8pDd3e8Zq_FDSk7qv"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."confirmation_token" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["confirmation_token", "64b147603d754b2138997908c8079b56f01031105daf40f51d57d45613d9bfb4"]]
+  [1m[35m (0.1ms)[0m  begin transaction
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "users" SET "confirmation_token" = ?, "confirmed_at" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["confirmation_token", nil], ["confirmed_at", "2015-04-21 01:18:21.033668"], ["updated_at", "2015-04-21 01:18:21.034067"], ["id", 2]]
+  [1m[35m (0.5ms)[0m  commit transaction
+Redirected to http://localhost:3000/users/sign_in
+Completed 302 Found in 7ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/users/sign_in" for ::1 at 2015-04-20 21:18:21 -0400
+Processing by Devise::SessionsController#new as HTML
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (3.1ms)
+  Rendered /Users/MatthewAo/.rvm/gems/ruby-2.1.5/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 74ms (Views: 73.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/welcome-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/jquery_ujs-dea3df1e9bbead522c4dd93cb57a1e87.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/articles-a667019d38147c1c4b1e0a3afab2f583.css?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/jquery-8c4e6828020641551e75881ff96bd52d.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/application-8c18e5d6e8ae399311ccba2b42b33209.css?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/turbolinks-dec8433f33530f21d5f9404e0d893fa3.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/articles-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/comments-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/welcome-14306cbf8971492c8d2c72c69ed66560.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
+
+
+Started GET "/assets/application-23125ab95a555564cb56161b18b32c14.js?body=1" for ::1 at 2015-04-20 21:18:21 -0400
