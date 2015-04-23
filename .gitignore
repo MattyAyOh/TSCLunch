@@ -1,5 +1,27 @@
+# Project specific #
+####################
+
 *.csv
 PreviousResults.txt
-web/tmp/*
-workspace.xml
-development.sqlite3
+**/tmp/**
+*.sqlite3
+*.log
+
+# IDE specific #
+################
+
+*.iml
+**/.idea/
+*.ipr
+*.iws
+
+# OS generated files #
+######################
+
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
