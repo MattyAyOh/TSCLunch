@@ -12,17 +12,19 @@ class BloggsController < ApplicationController
 
   def new
     @article = Blogg.new
+    authorize! :new, @article
   end
 
   def edit
     puts 'EDITING'
     puts params
     @article = Blogg.find(params[:id])
+    authorize! :edit, @article
   end
 
   def create
     @article = Blogg.new(article_params)
-
+    authorize! :create, @article
     if @article.save
       redirect_to @article
     else
@@ -32,8 +34,7 @@ class BloggsController < ApplicationController
 
   def update
     @article = Blogg.find(params[:id])
-    puts 'LOOK AT ME!!!'
-    puts article_params
+    authorize! :update, @article
     if @article.update(article_params)
       redirect_to @article
     else
@@ -43,6 +44,7 @@ class BloggsController < ApplicationController
 
   def destroy
     @tempBlog = Blogg.find(params[:id])
+    authorize! :destroy, @tempBlog
     @tempBlog.destroy
 
     redirect_to bloggs_path
