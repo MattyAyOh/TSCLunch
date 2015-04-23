@@ -1,28 +1,13 @@
-== README
+= TSCLunch
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+== Required software
+* Ruby 2+
+* Rails 4+
+* Rake 10+
+* Sqlite3
 
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+=== _Notes_
+* When running on Windows, the Development Kit is needed in addition to Rails. Download it here[http://rubyinstaller.org/downloads/].
+* Database conflicts can occur if there is an environment variable named <code>DATABASE_URL</code> (run <code>echo $DATABASE_URL</code> to see if you have one set). This needs to be removed or it will take precedence over the <code>database.yml</code> file.
+* At the time of writing, there were no admin creation options. Roles will need to be manually updated in the database until a method exists see this[https://github.com/MattyAyOh/TSCLunch/pull/2#issuecomment-95416409] comment.
+* To generate RDoc documentation, run <code>rake doc:app</code>. This will generate documentation on all RDoc documented code in HTML files viewable in a browser.
