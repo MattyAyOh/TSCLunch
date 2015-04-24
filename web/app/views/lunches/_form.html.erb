@@ -1,0 +1,29 @@
+<%= form_for(@lunch) do |f| %>
+  <% if @lunch.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@lunch.errors.count, "error") %> prohibited this lunch from being saved:</h2>
+
+      <ul>
+      <% @lunch.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :supplier %><br>
+    <%= f.text_field :supplier %>
+  </div>
+  <div class="field">
+    <%= f.label :sign_up_date_time %><br>
+    <%= f.datetime_select :sign_up_date_time %>
+  </div>
+  <div class="field">
+    <%= f.label :creator %><br>
+    <%= f.text_field :creator %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

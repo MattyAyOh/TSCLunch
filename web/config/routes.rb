@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lunches
+
   devise_for :users
   resources :bloggs do
     resources :comments

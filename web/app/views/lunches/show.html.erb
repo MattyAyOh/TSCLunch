@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Supplier:</strong>
+  <%= @lunch.supplier %>
+</p>
+
+<p>
+  <strong>Sign up date time:</strong>
+  <%= @lunch.sign_up_date_time %>
+</p>
+
+<p>
+  <strong>Creator:</strong>
+  <%= @lunch.creator %>
+</p>
+
+<%= link_to 'Edit', edit_lunch_path(@lunch) %> |
+<%= link_to 'Back', lunches_path %>
