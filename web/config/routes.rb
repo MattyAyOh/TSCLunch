@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :lunch_items
+
   resources :lunches
 
   devise_for :users
