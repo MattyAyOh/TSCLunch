@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  supplier: MyString
+  sign_up_date_time: 2015-04-24 00:47:57
+  creator: MyString
+
+two:
+  supplier: MyString
+  sign_up_date_time: 2015-04-24 00:47:57
+  creator: MyString
