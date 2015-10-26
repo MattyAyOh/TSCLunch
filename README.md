@@ -1,17 +1,14 @@
-TSCLunch
-========
-How to use:
-------
-* Download the lunch responses from Google docs as a csv file, into (Script-Directory)/CSVResponses
-  * (Google Docs Window, not web browser window) File -> Download As -> Comma Seperated Values
-* Make sure python 2.7.* is installed
-* Run python script 
-  * If using Windows, double click the script
-  * If using Mac, open terminal cd to the script directory, and type `python lunch.py`
-* The text displayed is now in your clipboard, you can paste it wherever.
-  * NOTE: Do not close the script until you've pasted.  Closing the script CAN corrupt your clipboard, and will freeze the application you are pasting into.  If your clipboard becomes corrupted, then you'll need to copy a new item into it.
-  * Hope to fix this bug eventually, but it also doesn't seem to happen all the time, and sometimes it just seems like it's thinking for a while
-* Press Ctrl+C to exit the script
+# TSCLunch
 
-TO-DO:
-------
+## Required software
+* Ruby 2+
+* Rails 4+
+* Rake 10+
+* Sqlite3
+* `mailcatcher` (See notes)
+
+### _Notes_
+* According to the [documentation](http://mailcatcher.me/), `mailcatcher` should not be included in the Gemfile. Run `gem install mailcatcher` locally to install `mailcatcher`.
+* When running on Windows, the Development Kit is needed in addition to Rails. Download it [here](http://rubyinstaller.org/downloads/).
+* Database conflicts can occur if there is an environment variable named `DATABASE_URL` (run `echo $DATABASE_URL` to see if you have one set). This needs to be removed or it will take precedence over the `database.yml` file.
+* At the time of writing, there were no admin creation options. Roles will need to be manually updated in the database until a method exists see [this](https://github.com/MattyAyOh/TSCLunch/pull/2#issuecomment-95416409) comment.
